@@ -1,0 +1,53 @@
+<div id="podcast_show">
+            <div id="show_banner">
+                <div id="wraper_skinny">
+                <h1><%= @podcasts.tittle %></h1>
+                <p class="description"><%= @podcasts.description %>
+                </p>
+                <% unless @podcasts.itunes.blank? %>
+                <a href="<%= @podcasts.itunes %>" class="subscribe_link">iTunes</a>
+                <% end %>
+                <% unless @podcasts.stitcher.blank? %>
+                <a href="<%= @podcasts.stitcher %>" class="subscribe_link">Stitcher</a>
+                <% end %>
+                <% unless @podcasts.podbay.blank? %>
+                <a href="<%= @podcasts.podbay %>" class="subscribe_link">PodBay</a>
+                <% end %>
+            </div>
+        </div>
+            
+            <div id="breadcrumb">
+            <%= link_to podcasts_path do %>
+             All podcast
+            <span>/</span>
+            Show banner
+            <% end %>
+            </div>
+            
+            <div id="episode">
+                <div id="wraper_skinny">
+                    <ul class="cf">
+                        <li class="cf">
+                            <div class="episode_thumbnail">
+                                <a href="#">
+                                    <img src="">
+                                </a>
+                            </div>
+                            <div class="episode_overview">
+                                <h2>
+                                </h2>
+                                <p class="description">
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div> 
+            </div>
+    </div> 
+        
+         <div class="pagination">
+            <span class="previous_page disabled">Previous</span>
+            <em class="current">1</em>
+            <a href="#">2</a>
+            <a class ="next_page" href="#">Next</a>
+        </div>

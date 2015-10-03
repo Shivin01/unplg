@@ -1,6 +1,5 @@
 #podcast
 {
-    float: left;
     padding-bottom: 3rem;
     ul{
         list-style: none;
@@ -17,7 +16,6 @@
                     width: 100%;
                     max-width: 100%;
                     border-radius: 0.35rem 0.35rem 0 0;
-                    //transition: background .4s ease-in-out;
                 } 
             .podcast_overview{
                 padding: 1rem 7.5%;
@@ -37,7 +35,7 @@
                 img{
                     opacity: 0.8;
                 }
-                .prodcast_overview{
+                .podcast_overview{
                     h2{
                     color: $high;
                     }
@@ -112,7 +110,7 @@
             padding: 3rem 0;
             ul {
                 list-style: none;
-                padding-left: 0;
+                padding-left: 0rem;
                 li
                 {
                     

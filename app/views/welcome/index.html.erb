@@ -5,7 +5,7 @@
   <nav>
   <ul>
   <% unless podcast_signed_in? %>
-   <li><a href="#">Explore</a></li>
+   <li><%= link_to "Explore", podcasts_path %></li>
    <li><%= link_to "Sign In", new_podcast_session_path %></li>
    <li><%= link_to "Create a Podcast", new_podcast_registration_path %></li>
    <% else %>
@@ -18,6 +18,6 @@
    <div class="wrapper_skinny">
    <h1>Discover Your new favourite<br>Podcast, or Create Podcast of your own.</h1>
    <%= link_to "Create a Podcast",new_podcast_registration_path, class: "button button_highlight" %>
-   <a href="#" class="button button_white">Explore</a>
+   <%= link_to "Explore", podcasts_path, class: "button button_white" %>
    </div>
    </div>
