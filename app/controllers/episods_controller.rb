@@ -8,7 +8,7 @@ class EpisodsController < ApplicationController
 	end
 
 	def create
-		@episod = @podcast.episods.new episod_params
+		@episod = @podcast.episod.new episod_params
 		if @episod.save
 			redirect_to podcast_episod_path(@podcast, @episod)
 		else
