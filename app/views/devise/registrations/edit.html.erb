@@ -1,7 +1,7 @@
    <div id="podcast_show">
             <div id="show_banner">
                 <div id="wraper_skinny">
-                    <h1>SHOW BANNER Dashboard</h1>
+                    <h1>SHOW</h1>
             </div>
         </div>
             <div id="links">
@@ -30,18 +30,18 @@
   
   <div class="field">
     <%= f.label :description %><br/>
-    <%= f.text_field :description %>
+    <%= f.text_area :description %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :thumbnail %><br/>
+    <%= f.file_field :thumbnail %>
   </div>
   
   <div class="field">
     <%= f.label :email %><br/>
     <%= f.email_field :email %>
   </div>
-
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
 
 	<h2>Links</h2>
 	

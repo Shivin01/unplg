@@ -30,6 +30,11 @@
 	<%= f.label :description %><br>
 	<%= f.text_area :description %>
 	</div>
+	
+	<div class="field">
+	<%= f.label :episod_thumbnail %><br>
+	<%= f.file_field :episod_thumbnail %>
+	</div>
 
 	 <%= f.submit "Update Episode", class: "button button_highlight button_block"  %>
 
