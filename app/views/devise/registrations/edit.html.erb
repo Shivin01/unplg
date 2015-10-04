@@ -7,14 +7,16 @@
             <div id="links">
                 <div class="wraper_skinny">
                     <ul>
-                        <li>Episode</li>
-                        <li><a href='#'>New Episode</a></li>
+                          <li><%= link_to "Episode", root_path %></li>
+                        <li><%= link_to "New Episode", new_podcast_episod_path(@podcast) %></li>
                          <li><%= link_to "Account Settings", edit_podcast_registration_path, class: "current" %></li>
-                         <li><a href='#'>View Podcast</a></li>
+                         <li><%= link_to "View Podcast", podcast_path(current_podcast) %></li>
                     </ul>
                 </div>
             </div>
            </div> 
+           
+           
            <div id="form">	
 		   <div class="wraper_skinny">       
 

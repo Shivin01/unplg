@@ -2,8 +2,9 @@ class EpisodsController < ApplicationController
 
 	before_action :find_podcast
 	before_action :find_episod, only: [:show]
+	
   	def new
-		@episod = @podcast.episods.new
+		@episod = @podcast.episod.new
 	end
 
 	def create

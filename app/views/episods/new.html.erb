@@ -1,19 +1,39 @@
-<h1>New Episode</h1>
+<div id="podcast_show">
+    <div id="show_banner">
+        <div id="wraper_skinny">
+         <h1>SHOW BANNER Dashboard</h1>
+    </div>
+        </div>
+        <div id="links">
+          <div class="wraper_skinny">
+             <ul>
+                <li><%= link_to "Episode", root_path %></li>
+                <li><%= link_to "New Episode", new_podcast_episod_path(@podcast),  class: "current" %></li>
+                 <li><%= link_to "Account Settings", edit_podcast_registration_path %></li>
+                  <li><%= link_to "View Podcast", podcast_path(current_podcast) %></li>
+             </ul>
+           </div>
+        </div>
+        
+        
 
-<%= form_for ([@podcast, @episod]) do |f| %>
+<div id="form">
+<div class="wraper_skinny">
 
-<%= f.label :title %><br>
-<%= f.text_field :title %>
+	<%= form_for ([@podcast, @episod]) do |f| %>
+	<div class="field">
+	<%= f.label :title %><br>
+	<%= f.text_field :title %>
+	</div>
+	
+	<div class="field">
+	<%= f.label :description %><br>
+	<%= f.text_area :description %>
+	</div>
 
-<br>
-<br>
+	 <%= f.submit "Create Episode", class: "button button_highlight button_block"  %>
 
-<%= f.label :description %><br>
-<%= f.text_area :description %>
-
-<br>
-<br>
-
- <%= f.submit "Create Episode" %>
-
-<% end %>
+	<% end %>
+	</div>
+	</div>
+	</div>
