@@ -19,12 +19,24 @@
             <div id="breadcrumb">
             <%= link_to podcasts_path do %>
              All podcast
-            <span>/</span> 
-            Show banner 
+            <span>/</span>
+            <%= link_to @podcast.tittle, podcast_path(@podcast) %>
+            <span>/</span>
+            <%= @episod.title %>
             <% end %>
             </div>
             
-       <div id="episode">
+            <div id="episode_content">
+                <div class="wraper_skinny">
+                    <img src="" alt="" class="current_episode_thumbnail">
+                    <h2><%= @episod.title %></h2>
+                    <p class="desciption">
+                    <%= @episod.description %>
+					</p>
+                </div>
+            </div>
+            
+            <div id="episode">
                 <div id="wraper_skinny">
                     <ul class="cf">
                     <% @episods.each do |episod| %>

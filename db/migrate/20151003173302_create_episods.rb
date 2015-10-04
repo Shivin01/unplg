@@ -1,6 +1,6 @@
-class CreateEpisodes < ActiveRecord::Migration
+class CreateEpisods < ActiveRecord::Migration
   def change
-    create_table :episodes do |t|
+    create_table :episods do |t|
       t.string :title
       t.text :description
       t.references :podcast, index: true, foreign_key: true
