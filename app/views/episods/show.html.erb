@@ -66,15 +66,13 @@
 		</div>
 	</div>
 
-	<div id="episode">
-		<div class="wraper_skinny">
+	<div id="episodes">
+		<div class="wrapper_skinny">
 			<ul class="cf">
 				<% @episods.each do |episod| %>
 					<li class="cf">
 						<div class="episode_thumbnail">
-							<a href="episode.html">
 								<%= image_tag episod.episod_thumbnail.url(:medium) %>
-							</a>
 						</div>
 						<div class="episode_overview">
 							<h2><%= link_to episod.title, podcast_episod_path(@podcast, episod) %></h2>
