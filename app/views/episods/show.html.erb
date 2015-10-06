@@ -1,65 +1,102 @@
 <div id="podcast_show">
-            <div id="show_banner">
-                <div id="wraper_skinny">
-                <h1><%= @podcast.tittle %></h1>
-                <p class="description"><%= @podcast.description %>
-                </p>
-                <% unless @podcast.itunes.blank? %>
-                <a href="<%= @podcast.itunes %>" class="subscribe_link">iTunes</a>
-                <% end %>
-                <% unless @podcast.stitcher.blank? %>
-                <a href="<%= @podcast.stitcher %>" class="subscribe_link">Stitcher</a>
-                <% end %>
-                <% unless @podcast.podbay.blank? %>
-                <a href="<%= @podcast.podbay %>" class="subscribe_link">PodBay</a>
-                <% end %>
+	<div id="show_banner">
+		<div class="wraper_skinny">
+			<h1><%= @podcast.tittle %></h1>
+			<p class="description"><%= @podcast.description %></p>
+			<% unless @podcast.itunes.blank? %>
+				<a href="<%= @podcast.itunes %>" class="subscribe_link">iTunes</a>
+			<% end %>
+			<% unless @podcast.stitcher.blank? %>
+				<a href="<%= @podcast.stitcher %>" class="subscribe_link">Stitcher</a>
+			<% end %>
+			<% unless @podcast.podbay.blank? %>
+				<a href="<%= @podcast.podbay %>" class="subscribe_link">PodBay</a>
+			<% end %>
+		</div>
+	</div>
+
+	<div id="breadcrumb">
+		<%= link_to podcasts_path do %>
+			All Podcasts
+			<span>/</span>
+			<%= link_to @podcast.tittle, podcast_path(@podcast) %>
+			<span>/</span>
+			<%= @episod.title %>
+		<% end %>
+	</div>
+
+	<div id="episode_content">
+		<div class="wrapper_skinny">
+			<%= image_tag @episod.episod_thumbnail.url(:medium), class: "current_episod_thumbnail" %>
+			<h2><%= @episod.title %></h2>
+			<p class="description"><%= @episod.description %></p>
+
+			<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+      <div id="jp_container_1" class="jp-audio">
+        <div class="jp-type-single">
+          <div class="jp-gui jp-interface">
+            <ul class="jp-controls">
+              <li><a href="javascript:;" class="jp-play" tabindex="1">&#61515;</a></li>
+              <li><a href="javascript:;" class="jp-pause" tabindex="1">&#61516;</a></li>
+              <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">&#61480;</a></li>
+              <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">&#61478;</a></li>
+            </ul>
+
+            <div class="jp-progress">
+              <div class="jp-seek-bar">
+                <div class="jp-play-bar"></div>
+              </div>
             </div>
+
+            <div class="jp-time-holder">
+              <div class="jp-current-time"></div>
+            </div>
+
+            <div class="jp-volume-bar">
+              <div class="jp-volume-bar-value"></div>
+            </div>
+
+            <div class="jp-no-solution">
+              <span>Update Required</span>
+              To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+            </div>
+          </div>
         </div>
-            
-            <div id="breadcrumb">
-            <%= link_to podcasts_path do %>
-             All podcast
-            <span>/</span>
-            <%= link_to @podcast.tittle, podcast_path(@podcast) %>
-            <span>/</span>
-            <%= @episod.title %>
-            <% end %>
-            </div>
-            
-            <div id="episode_content">
-                <div class="wraper_skinny">
-                    <%= image_tag @episod.episod_thumbnail.url(:medium), class: "current_episode_thumbnail"	%> 
-                    <h2><%= @episod.title %></h2>
-                    <p class="desciption">
-                    <%= @episod.description %>
-					</p>
-                </div>
-            </div>
-            
-            <div id="episode">
-                <div id="wraper_skinny">
-                    <ul class="cf">
-                    <% @episods.each do |episod| %>
-                        <li class="cf">
-                            <div class="episode_thumbnail">
-                                <a href="#">
-                                    <%= image_tag @episod.episod_thumbnail.url(:medium) %>
-                                </a>
-                            </div>
-                            <div class="episode_overview">
-                               <h2><%= link_to episod.title, podcast_episod_path(@podcast, episod) %></h2>
-                                <p class="description"><%= truncate(episod.description, lenght: 160) %></p>
-                            </div>
-                        </li>
-                        <% end %>
-                    </ul>
-                </div> 
-            </div>
-    </div> 
-        
-         <div class="pagination">
-            <span class="previous_page disabled">Previous</span>
-            <em class="current">1</em>
-            <a href="#">2</a>
-            <a class ="next_page" href="#">Next</a>
-        </div>
+      </div>
+		</div>
+	</div>
+
+	<div id="episode">
+		<div class="wraper_skinny">
+			<ul class="cf">
+				<% @episods.each do |episod| %>
+					<li class="cf">
+						<div class="episode_thumbnail">
+							<a href="episode.html">
+								<%= image_tag episod.episod_thumbnail.url(:medium) %>
+							</a>
+						</div>
+						<div class="episode_overview">
+							<h2><%= link_to episod.title, podcast_episod_path(@podcast, episod) %></h2>
+							<p class="description"><%= truncate(episod.description, length: 160) %></p>
+						</div>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(document).ready(function(){
+	  $("#jquery_jplayer_1").jPlayer({
+	    ready: function () {
+	      $(this).jPlayer("setMedia", {
+	        mp3: "<%= @episod.mp3.url %>",
+	      });
+	    },
+	    swfPath: "/js",
+	    supplied: "mp3"
+	  });
+	});
+</script>

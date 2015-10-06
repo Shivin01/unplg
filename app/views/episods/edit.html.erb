@@ -32,9 +32,15 @@
 	</div>
 	
 	<div class="field">
-	<%= f.label :episod_thumbnail %><br>
+	<%= f.label :episode_thumbnail %><br>
 	<%= f.file_field :episod_thumbnail %>
 	</div>
+	
+	<div class="field">
+	<%= f.label :mp3 %><br>
+	<%= f.file_field :mp3 %>
+	</div>
+		
 
 	 <%= f.submit "Update Episode", class: "button button_highlight button_block"  %>
 
