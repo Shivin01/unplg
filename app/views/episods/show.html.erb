@@ -1,6 +1,7 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <div id="podcast_show">
 	<div id="show_banner">
-		<div class="wraper_skinny">
+		<div class="wrapper_skinny">
 			<h1><%= @podcast.tittle %></h1>
 			<p class="description"><%= @podcast.description %></p>
 			<% unless @podcast.itunes.blank? %>
@@ -27,7 +28,7 @@
 
 	<div id="episode_content">
 		<div class="wrapper_skinny">
-			<%= image_tag @episod.episod_thumbnail.url(:medium), class: "current_episod_thumbnail" %>
+			<%= image_tag @episod.episod_thumbnail.url(:medium), class: "current_episode_thumbnail" %>
 			<h2><%= @episod.title %></h2>
 			<p class="description"><%= @episod.description %></p>
 
@@ -72,7 +73,9 @@
 				<% @episods.each do |episod| %>
 					<li class="cf">
 						<div class="episode_thumbnail">
+							<a href="episode.html">
 								<%= image_tag episod.episod_thumbnail.url(:medium) %>
+							</a>
 						</div>
 						<div class="episode_overview">
 							<h2><%= link_to episod.title, podcast_episod_path(@podcast, episod) %></h2>

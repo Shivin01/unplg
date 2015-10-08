@@ -15,13 +15,16 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 3.5.2'
-gem 'paperclip', '< 4.2'
+gem 'paperclip', '~> 4.2.1'
 gem 'imagemagick-identify'
 gem 'aws-sdk', '< 2.0'
+
 
 gem 'paperclip-document', '0.0.9'
 
 gem 'will_paginate', '~> 3.0.7'
+
+gem 'omniauth-facebook'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
