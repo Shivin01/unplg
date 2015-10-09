@@ -13,16 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20151007211520) do
 
-  create_table "episodes", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
-    t.integer  "podcast_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "episodes", ["podcast_id"], name: "index_episodes_on_podcast_id"
-
   create_table "episods", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
